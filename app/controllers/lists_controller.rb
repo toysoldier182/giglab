@@ -7,6 +7,7 @@ class ListsController < ApplicationController
   def show; end
 
   def new
+    @board = Board.find(params[:board_id])
     @list = List.new
   end
 
