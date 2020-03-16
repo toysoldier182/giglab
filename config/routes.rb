@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root to: "pages#index"
-  resources :boards, only: [ :index, :show ]
+  resources :boards
   devise_for :users
 end

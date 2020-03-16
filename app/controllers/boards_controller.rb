@@ -1,12 +1,48 @@
 class BoardsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_board, only: [:show, :edit, :update, :destroy]
+
   def index
-    if user_signed_in?
-      @boards = Board.includes(user_id: current_user.id)
+    @boards = Board.all
+    #Update this method to the code below one boards have been associated to users
+    # @boards = Board.includes(user_id: current_user.id) if user_signed_in?
+  end
+
+  def show; end
+
+  def new
+    @board = Board.new
+  end
+
+  def create
+    @board = Board.new(board_params)
+    # @board.user_id = current_user.id
+    if @board.save
+      redirect_to board_path(@board)
+    else
+      render 'new'
     end
   end
 
-  def show
+  def edit; end
+
+  def update
+    @board.update
+    redirect_to board_path(@board)
+  end
+
+  def destroy
+    @board.destroy
+    redirect_to boards_path
+  end
+
+  private
+
+  def board_params
+    params.require(:board).permit(:name)
+  end
+
+  def find_board
     @board = Board.find(params[:id])
   end
 end

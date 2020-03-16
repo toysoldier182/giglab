@@ -1,0 +1,13 @@
+
+  <div class="container">
+    <h1>Create new board</h1>
+    <div class="row justify-content-center">
+      <div class="col">
+        <%= simple_form_for @board do |f| %>
+          <%= f.input :name %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
