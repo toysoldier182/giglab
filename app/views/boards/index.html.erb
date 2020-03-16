@@ -18,7 +18,8 @@
             <% end %>
           </div>
           <div class="board-controls">
-            <%= link_to "Delete",  , method: :delete, data: {confirm: "Are you sure?"} %>
+            <%= link_to "Edit", edit_board_path(board), class: "btn btn-primary" %>
+            <%= link_to "Delete", board_path(board) , method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
           </div>
         </div>
         <% end %>
