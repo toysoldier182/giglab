@@ -3,7 +3,9 @@ class BoardsController < ApplicationController
   before_action :find_board, only: [:show, :edit, :update, :destroy]
 
   def index
-    @boards = Board.includes(user_id: current_user.id) if user_signed_in?
+    @boards = Board.all
+    #Update this method to the code below one boards have been associated to users
+    # @boards = Board.includes(user_id: current_user.id) if user_signed_in?
   end
 
   def show; end
@@ -14,7 +16,7 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(board_params)
-    @board.user_id = current_user.id
+    # @board.user_id = current_user.id
     if @board.save
       redirect_to board_path(@board)
     else
