@@ -13,7 +13,12 @@
         <% @boards.each do |board| %>
         <div class="board">
           <div class="board-title">
+            <%= link_to board_path(board) do %>
             <%= board.name %>
+            <% end %>
+          </div>
+          <div class="board-controls">
+            <%= link_to "Delete",  , method: :delete, data: {confirm: "Are you sure?"} %>
           </div>
         </div>
         <% end %>
