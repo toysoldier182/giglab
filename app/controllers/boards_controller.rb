@@ -1,6 +1,9 @@
 class BoardsController < ApplicationController
+  before_action :authenticate_user!
   def index
-    @boards = Board.includes(user_id: current_user.id)
+    if user_signed_in?
+      @boards = Board.includes(user_id: current_user.id)
+    end
   end
 
   def show
