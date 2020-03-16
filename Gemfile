@@ -18,6 +18,9 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
+#Devise–authentication
+gem 'devise'
+
 #fronte-end gems
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
