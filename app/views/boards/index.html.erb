@@ -11,9 +11,15 @@
     <div class="col">
       <div class="boards-grid">
         <% @boards.each do |board| %>
-        <div class="board">
+        <div class="board px-1 py-3">
           <div class="board-title">
+            <%= link_to board_path(board) do %>
             <%= board.name %>
+            <% end %>
+          </div>
+          <div class="board-controls">
+            <%= link_to "Edit", edit_board_path(board), class: "btn btn-primary" %>
+            <%= link_to "Delete", board_path(board) , method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
           </div>
         </div>
         <% end %>
