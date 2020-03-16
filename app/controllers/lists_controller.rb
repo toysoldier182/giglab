@@ -16,7 +16,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.board_id = @board.id
     if @list.save
-      redirect_to board_list_path(@list)
+      redirect_to board_lists_path
     else
       render 'new'
     end
