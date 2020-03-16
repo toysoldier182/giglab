@@ -11,7 +11,7 @@
     <div class="col">
       <div class="boards-grid">
         <% @boards.each do |board| %>
-        <div class="board">
+        <div class="board px-1 py-3">
           <div class="board-title">
             <%= link_to board_path(board) do %>
             <%= board.name %>

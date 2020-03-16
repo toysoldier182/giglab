@@ -25,7 +25,7 @@ class BoardsController < ApplicationController
   def edit; end
 
   def update
-    @board.update
+    @board.update(board_params)
     redirect_to board_path(@board)
   end
 
