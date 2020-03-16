@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  // background-color: tomato;
+  // border: 2px solid cornflowerblue;
+
+  ul.navbar-links {
+    display: flex;
+    justify-contet: center;
+    align-items: center;
+    list-style: none;
+    // border: 1px solid limegreen;
+
+    li {
+      display: inline-block;
+    }
+  }
+}
