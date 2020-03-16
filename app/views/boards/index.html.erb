@@ -3,6 +3,16 @@
     <div class="col">
       <h1>My boards</h1>
     </div>
+
+    <div class="row">
+      <div class="col">
+        <%# raise %>
+        <%= simple_form_for @board do |f| %>
+          <%= f.input :name %>
+          <%= f.button :submit  %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="row">
