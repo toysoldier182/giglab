@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_board, only: [:show, :edit, :update]
+  before_action :find_board, only: [:show, :edit, :update, :destroy]
 
   def index
     @boards = Board.includes(user_id: current_user.id) if user_signed_in?
@@ -27,6 +27,11 @@ class BoardsController < ApplicationController
   def update
     @board.update
     redirect_to board_path(@board)
+  end
+
+  def destroy
+    @board.destroy
+    redirect_to boards_path
   end
 
   private
