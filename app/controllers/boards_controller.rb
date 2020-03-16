@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   def index
-    @boards = Board.all
+    @boards = Board.includes(user_id: current_user.id)
   end
 
   def show
