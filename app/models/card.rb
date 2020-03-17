@@ -18,5 +18,7 @@
 #  fk_rails_...  (list_id => lists.id)
 #
 class Card < ApplicationRecord
-  belongs_to :lists
+  belongs_to :list
+
+  validates :name, :description, presence: true
 end
