@@ -12,10 +12,12 @@
   <% @board.lists.each do |list| %>
     <div class="list">
       <div class="list-title mt-2">
-        <%= simple_form_for [@board, @list] do |f| %>
-                <%= f.hidden_field :content %>
-                <%= f.submit "Save" %>
-            <% end %>
+        <%#= simple_form_for [@list, @card] do |f| %>
+                <%#= f.hidden_field :content %>
+                <%#= f.submit "Save" %>
+            <%# end %>
+
+            <!-- Above code is an attempt to make contenteditable persist to DB -->
         <p contenteditable="true" id="content">
           <%= list.name%>
         </p>

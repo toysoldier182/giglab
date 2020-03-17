@@ -6,7 +6,9 @@ class BoardsController < ApplicationController
     @boards = Board.where(user_id: current_user.id) if user_signed_in?
   end
 
-  def show; end
+  def show
+
+  end
 
   def new
     @board = Board.new
