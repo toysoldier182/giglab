@@ -12,15 +12,19 @@
   <% @board.lists.each do |list| %>
     <div class="list">
       <div class="list-title mt-2">
-        <p>
-          <%= list.name %>
-          <%= link_to "+Add card", new_list_card_path(list) %>
+        <%= simple_form_for [@board, @list] do |f| %>
+                <%= f.hidden_field :content %>
+                <%= f.submit "Save" %>
+            <% end %>
+        <p contenteditable="true" id="content">
+          <%= list.name%>
         </p>
+        <%= link_to "+Add card", new_list_card_path(list) %>
         <div class="list-cards">
           <% list.cards.each do |card| %>
           <div class="list-card">
             <%= link_to card_path(card) do %>
-              <p><%= card.name %></p>
+              <p>Card name: <%= card.name %></p>
             <% end %>
             <p><%= card.description %></p>
           </div>
