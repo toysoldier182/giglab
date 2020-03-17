@@ -1,7 +1,9 @@
 class ListsController < ApplicationController
-  before_action :find_list, only: [:show, :edit, :update, :destroy  ]
+  before_action :find_list, only: [ :show, :edit, :update, :destroy ]
+
   def index
-    @lists = List.all
+    return nil if List.all.empty?
+    return @lists = List.includes(:board)
   end
 
   def show; end
@@ -16,7 +18,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.board_id = @board.id
     if @list.save
-      redirect_to board_lists_path
+      redirect_to board_path(@board)
     else
       render 'new'
     end
@@ -31,7 +33,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list.destroy
-    redirect_to lists_path
+    redirect_to board_path(@list.board_id)
   end
 
   private

@@ -1,7 +1,11 @@
 <h1>All lists</h1>
 
-<ul>
-  <% @lists.each do |list| %>
-  <li><%= list.name %></li>
-  <% end %>
-</ul>
+<% if @lists != nil %>
+  <ul>
+    <% @lists.each do |list| %>
+    <li><%= list.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No lists yet!</p>
+<% end %>

@@ -2,7 +2,14 @@
   <div class="row justify-content-center">
     <div class="col">
       <h1>My boards</h1>
-      <p><%= link_to "Create new board", new_board_path %></p>
+
+      <% if @boards.empty? %>
+        <%= link_to "Create your first board!", new_board_path, class: 'link-text' %>
+      <% else %>
+        <%= link_to "Create new board", new_board_path, class: 'link-text' %>
+      <% end %>
+
+
     </div>
 </div>
 
@@ -10,18 +17,22 @@
   <div class="row">
     <div class="col">
       <div class="boards-grid">
-        <% @boards.each do |board| %>
-        <div class="board px-1 py-3">
-          <div class="board-title">
-            <%= link_to board_path(board) do %>
-            <%= board.name %>
-            <% end %>
+        <% if @boards.any? %>
+          <% @boards.each do |board| %>
+          <div class="board px-1 py-3">
+            <div class="board-title">
+              <%= link_to board_path(board) do %>
+              <%= board.name %>
+              <% end %>
+            </div>
+            <div class="board-controls">
+              <%= link_to "Edit", edit_board_path(board), class: "btn btn-primary" %>
+              <%= link_to "Delete", board_path(board) , method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+            </div>
           </div>
-          <div class="board-controls">
-            <%= link_to "Edit", edit_board_path(board), class: "btn btn-primary" %>
-            <%= link_to "Delete", board_path(board) , method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
-          </div>
-        </div>
+          <% end %>
+        <% else %>
+          <p>No boards yet!</p>
         <% end %>
       </div>
     </div>
