@@ -12,11 +12,31 @@
   <% @board.lists.each do |list| %>
     <div class="list">
       <div class="list-title mt-2">
-        <p><%= list.name %></p>
+        <%#= simple_form_for [@list, @card] do |f| %>
+                <%#= f.hidden_field :content %>
+                <%#= f.submit "Save" %>
+            <%# end %>
+
+            <!-- Above code is an attempt to make contenteditable persist to DB -->
+        <p contenteditable="true" id="content">
+          <%= list.name%>
+        </p>
+        <%= link_to "+Add card", new_list_card_path(list) %>
+        <div class="list-cards">
+          <% list.cards.each do |card| %>
+          <div class="list-card">
+            <%= link_to card_path(card) do %>
+              <p>Card name: <%= card.name %></p>
+            <% end %>
+            <p><%= card.description %></p>
+          </div>
+          <% end %>
+        </div>
       </div>
       <div class="list-controls">
         <%= link_to "Edit", edit_list_path(list), class: "btn btn-primary" %>
         <%= link_to "Delete", list_path(list) , method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+
       </div>
     </div>
   <% end %>
