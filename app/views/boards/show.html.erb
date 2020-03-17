@@ -1,7 +1,13 @@
 <%= link_to "Back to my boards", boards_path %>
 <h1><%= @board.name %></h1>
-<%= link_to "Create new list", new_board_list_path(@board) %>
 
+<% if @board.lists.any? %>
+  <%= link_to "Create new list", new_board_list_path(@board) %>
+<% else %>
+  <%= link_to "Create your first list", new_board_list_path(@board) %>
+<% end %>
+
+<% if @board.lists.any? %>
 <div class="lists-grid">
   <% @board.lists.each do |list| %>
     <div class="list">
@@ -15,3 +21,6 @@
     </div>
   <% end %>
 </div>
+<% else %>
+  <p>No lists yet!</p>
+<% end %>

@@ -1,7 +1,9 @@
 class ListsController < ApplicationController
   before_action :find_list, only: [ :show, :edit, :update, :destroy ]
+
   def index
-    @lists = List.all
+    return nil if List.all.empty?
+    return @lists = List.includes(:board)
   end
 
   def show; end
