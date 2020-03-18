@@ -49,6 +49,7 @@
 #                                       PATCH  /lists/:id(.:format)                                                                     lists#update
 #                                       PUT    /lists/:id(.:format)                                                                     lists#update
 #                                       DELETE /lists/:id(.:format)                                                                     lists#destroy
+#                            todo_items GET    /todo_items(.:format)                                                                    todo_items#index
 #         rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
