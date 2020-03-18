@@ -20,3 +20,5 @@ import { } from '../components/contenteditable.js'
 document.addEventListener('turbolinks:load', () => {
 
 });
+
+import "controllers"
