@@ -50,6 +50,8 @@
 #                                       PUT    /lists/:id(.:format)                                                                     lists#update
 #                                       DELETE /lists/:id(.:format)                                                                     lists#destroy
 #                            todo_items GET    /todo_items(.:format)                                                                    todo_items#index
+#                             todo_item PATCH  /todo_items/:id(.:format)                                                                todo_items#update
+#                                       PUT    /todo_items/:id(.:format)                                                                todo_items#update
 #         rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
@@ -82,7 +84,7 @@ Rails.application.routes.draw do
     resources :cards, shallow: true
   end
 
-  resources :todo_items, only: [:index]
+  resources :todo_items, only: [:index, :update, :show]
 
   # resources :cards, shallow: true do
   #   resources :due_dates

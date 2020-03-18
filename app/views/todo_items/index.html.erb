@@ -1,9 +1,11 @@
-
+<div data-controller="hello">
+  <h1 data-target="hello.output"></h1>
+</div>
 
 <table>
   <% @todos.each do |todo| %>
     <tr data-controller="todo"
-          data-todo-update-url="<%= todo_path(todo) %>">
+          data-todo-update-url="<%= todo_item_path(todo) %>">
       <td>
         <input type="checkbox"
                     data-action="todo#toggle"
