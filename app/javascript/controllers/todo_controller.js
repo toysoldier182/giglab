@@ -1,7 +1,9 @@
 import { Controller } from "stimulus"
 export default class extends Controller {
     static targets = [ "completed" ]
+
     toggle(event) {
+      console.log(event.currentTarget);
       let formData = new FormData()
       formData.append("todo[completed]", this.completedTarget.checked);
 
@@ -12,12 +14,12 @@ export default class extends Controller {
             credentials: "include",
             headers: {
                     "X-CSRF-Token": getMetaValue("csrf-token")
-             },
-      })
-      .then(function(response) {
+             }
+      }).then(function(response) {
           if (response.status != 204) {
               event.target.checked = !event.target.checked
           }
       })
     }
 }
+

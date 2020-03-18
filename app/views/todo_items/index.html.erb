@@ -4,11 +4,11 @@
 
 <table>
   <% @todos.each do |todo| %>
-    <tr data-controller="todo"
+    <tr data-controller="Todo"
           data-todo-update-url="<%= todo_item_path(todo) %>">
       <td>
         <input type="checkbox"
-                    data-action="todo#toggle"
+                    data-action="click->todo#toggle"
                     data-target="todo.completed"
                     <% if todo.completed %> checked <% end %> >
         <%= todo.title %>
