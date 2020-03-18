@@ -81,6 +81,8 @@ Rails.application.routes.draw do
     resources :cards, shallow: true
   end
 
+  resources :todo_items, only: [:index]
+
   # resources :cards, shallow: true do
   #   resources :due_dates
   #   resources :todo_lists
